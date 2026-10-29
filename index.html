@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="en" data-theme="creative-lab">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eya Msolli — Software Engineering · Embedded Systems · IoT &amp; AI</title>
+    <meta name="description" content="Personal portfolio of Eya Msolli: Building things that connect code, hardware &amp; ideas." />
+    <meta property="og:title" content="Eya Msolli — Software Engineering · IoT · AI" />
+    <meta property="og:description" content="Building things that connect code, hardware &amp; ideas." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/src/index.css" />
+  </head>
+  <body>
+    <!-- Top IoT Telemetry & Sensor HUD Strip -->
+    <aside class="iot-telemetry-hud" aria-label="IoT Device Status Bar">
+      <div class="container hud-inner">
+        <div class="hud-left">
+          <div class="hud-chip">
+            <span class="hud-pulse-dot" aria-hidden="true"></span>
+            <span>NODE_ID: EM-01 [ACTIVE]</span>
+          </div>
+          <div class="hud-chip clickable" id="hud-sensor-toggle" title="Click to test live biosensor reading">
+            <span>❤️ <span id="hud-bpm-display">74 BPM</span></span>
+          </div>
+          <div class="hud-chip">
+            <span>🔋 98% (3.92V LiPo)</span>
+          </div>
+          <div class="hud-chip">
+            <span>📶 4G LTE-M: -68 dBm</span>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div class="hud-xp-box" id="hud-xp-box" title="Your IoT Engineer XP score">
+            <span>⚡ XP: <strong id="hud-xp-score">250</strong></span>
+          </div>
+
+          <button type="button" class="hud-sfx-toggle active" id="sfx-toggle-btn" title="Toggle retro synthesized sound effects">
+            🔊 SFX: ON
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Top Navigation Bar -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <!-- Brand Wordmark -->
+        <a href="#hero" class="brand-wrap" aria-label="Eya Msolli Home">
+          <span class="brand-logo">EM</span>
+          <div>
+            <span class="brand-text">Eya Msolli</span>
+            <span class="brand-subline">dev_lab://software+iot+ai</span>
+          </div>
+        </a>
+
+        <!-- Main Navigation Links -->
+        <nav aria-label="Main Navigation">
+          <ul class="nav-links" id="nav-links">
+            <li><a href="#hero" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#iot-lab" class="nav-link">IoT Arcade ⚡</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Actions & Vibe Switcher -->
+        <div class="vibe-switcher-wrap">
+          <a href="https://www.linkedin.com/in/eyamsolli/" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin btn-sm" style="padding: 4px 10px; font-size: 0.78rem;">
+            in LinkedIn
+          </a>
+
+          <button type="button" class="vibe-selector-btn" id="open-vibe-modal-btn" aria-label="Customize visual vibe">
+            <span class="vibe-dot" id="active-vibe-dot"></span>
+            <span id="active-vibe-label">Creative Lab</span>
+            <span style="font-size: 0.7rem; opacity: 0.7;">▾</span>
+          </button>
+
+          <button type="button" class="mobile-toggle-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ====================================================================
+           1. HERO SECTION (Asymmetric with Actual Photo & Hardware Chassis)
+           ==================================================================== -->
+      <section class="section hero-section" id="hero">
+        <div class="container">
+          <div class="hero-grid">
+            <!-- Left Hero Content -->
+            <div class="hero-card">
+              <div class="hero-sticker-row">
+                <span class="sticker sticker-lime tilt-left">Software Engineering · IoT · AI</span>
+                <span class="sticker sticker-white tilt-right">Hardware meets software</span>
+                <span class="sticker sticker-lavender">Built with curiosity</span>
+              </div>
+
+              <div>
+                <h1 class="hero-headline">
+                  Building things that connect <span class="highlight-teal">code</span>, <span class="highlight-teal">hardware</span> &amp; <span class="highlight-teal">ideas</span>.
+                </h1>
+              </div>
+
+              <p class="hero-intro">
+                Hi, I'm <strong>Eya Msolli</strong>. I enjoy creating practical software and intelligent IoT systems that connect embedded hardware, real-time data, and AI-powered analysis.
+              </p>
+
+              <div class="hero-academic-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+                <span>Currently pursuing an Engineering Degree in Software Engineering at <strong>EPI</strong></span>
+              </div>
+
+              <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary" id="hero-btn-projects">
+                  Explore my projects →
+                </a>
+                <a href="#iot-lab" class="btn btn-lime" id="hero-btn-arcade">
+                  Play with IoT Sandbox ⚡
+                </a>
+                <a href="https://www.linkedin.com/in/eyamsolli/" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin">
+                  LinkedIn Profile ↗
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Hero Portrait Photo Card: Eya's Actual Photo -->
+            <div class="hero-photo-card">
+              <div class="photo-frame-top">
+                <div class="photo-window-dots">
+                  <span class="photo-window-dot"></span>
+                  <span class="photo-window-dot"></span>
+                  <span class="photo-window-dot"></span>
+                </div>
+                <span class="sticker sticker-teal" style="font-size: 0.68rem; padding: 2px 8px;">EYA // VERIFIED_GRADUATE</span>
+              </div>
+
+              <div class="photo-media-wrapper">
+                <span class="sticker sticker-lime photo-badge-sticker">🎓 Eya Msolli · ISSAT Sousse</span>
+                
+                <!-- Actual photo provided by user -->
+                <img 
+                  id="profile-photo-img"
+                  class="hero-portrait-img" 
+                  src="/assets/aistudio/WhatsApp_Image_2026-10-27_at_23.37.34_2f23d23d.jpeg" 
+                  alt="Eya Msolli — Computer Systems Engineering, Embedded Systems and IoT Graduate"
+                  loading="eager"
+                  referrerpolicy="no-referrer"
+                />
+
+                <div class="photo-thesis-pill">
+                  <strong>Thesis:</strong> Intelligent IoT-Based ECG Monitoring System · ISSAT Sousse / ARSII
+                </div>
+              </div>
+
+              <div class="photo-footer-telemetry">
+                <div class="telemetry-row">
+                  <span class="telemetry-key">DEGREE:</span>
+                  <span class="telemetry-val">Embedded Systems &amp; IoT (ISSAT)</span>
+                </div>
+                <div class="telemetry-row">
+                  <span class="telemetry-key">CURRENT:</span>
+                  <span class="telemetry-val">Software Engineering (EPI)</span>
+                </div>
+                <div class="telemetry-row">
+                  <span class="telemetry-key">LAB TELEMETRY:</span>
+                  <span class="telemetry-val" style="color: var(--primary);">🟢 Online · Ready to Build</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           2. ABOUT ME SECTION (Personal, Conversational, Interactive Timeline)
+           ==================================================================== -->
+      <section class="section section-alt" id="about">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker-wrap">
+                <span class="section-index">01 //</span>
+                <span class="section-kicker">Background &amp; Philosophy</span>
+              </div>
+              <h2 class="section-title">About Me</h2>
+            </div>
+            <span class="sticker sticker-lime">Currently learning</span>
+          </div>
+
+          <div class="about-asymmetric-grid">
+            <!-- Left Narrative -->
+            <div class="about-narrative-card">
+              <p class="about-lead">
+                I am a software engineering student with roots in embedded hardware, wireless telemetry, and computer systems.
+              </p>
+
+              <p class="about-body">
+                My passion lies at the intersection where code meets the real physical world. Having spent years wiring sensors, configuring microcontrollers, and tuning serial communication protocols, I transitioned into software engineering to design robust application architectures, scalable cloud backends, and practical machine learning models.
+              </p>
+
+              <div class="quote-highlight">
+                "I'm driven by the curiosity of how software interacts with physical environments — turning raw signals into intelligent, actionable applications."
+              </div>
+
+              <p class="about-body">
+                Whether it's streaming real-time biosignals over cellular uplinks, running quantized neural networks on edge devices like the Raspberry Pi, or creating assistive tracking systems for caregivers, I focus on building practical tools with genuine utility.
+              </p>
+            </div>
+
+            <!-- Right Education Timeline -->
+            <div class="education-timeline-card">
+              <div class="timeline-title">
+                <span>🎓 Academic Journey</span>
+              </div>
+
+              <div class="timeline-items">
+                <!-- Present Degree -->
+                <div class="timeline-entry current">
+                  <div class="timeline-bullet"></div>
+                  <span class="timeline-period">CURRENT ENROLLMENT</span>
+                  <div class="timeline-degree">Engineering Degree in Software Engineering</div>
+                  <div class="timeline-institution">EPI (École Polytechnique Internationale)</div>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
+                    Focusing on advanced software engineering, distributed systems, clean software architecture, and modern application development.
+                  </p>
+                </div>
+
+                <!-- Prior Degree -->
+                <div class="timeline-entry past">
+                  <div class="timeline-bullet"></div>
+                  <span class="timeline-period">PREVIOUS DEGREE</span>
+                  <div class="timeline-degree">Bachelor's Degree in Computer Systems Engineering</div>
+                  <div class="timeline-institution">Specialization in Embedded Systems &amp; IoT · ISSAT Sousse</div>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
+                    Hands-on foundations in microcontrollers, sensor integration, circuit schematics, serial telemetry, and IoT architectures.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           3. PROJECTS SECTION (Mini Case Studies with Architecture Flow)
+           ==================================================================== -->
+      <section class="section" id="projects">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker-wrap">
+                <span class="section-index">02 //</span>
+                <span class="section-kicker">Technical Case Studies</span>
+              </div>
+              <h2 class="section-title">Featured Projects</h2>
+            </div>
+            <span class="sticker sticker-teal">Hardware × AI × Web</span>
+          </div>
+
+          <div class="projects-deck">
+            <!-- Project 01 -->
+            <article class="project-case">
+              <div class="project-topbar">
+                <div class="project-title-area">
+                  <span class="project-case-num">CASE 01 // TELEMETRY &amp; CLOUD PIPELINE</span>
+                  <h3 class="project-case-title">Intelligent IoT-Based ECG Monitoring System</h3>
+                </div>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <span class="sticker sticker-lime">Academic Prototype</span>
+                  <span class="sticker sticker-white">IoT Pipeline</span>
+                </div>
+              </div>
+
+              <p class="project-narrative">
+                An IoT-based ECG monitoring prototype that acquires real-time cardiac signals using an AD8232 analog front-end sensor and Arduino microcontroller, transmits packetized telemetry through cellular connectivity (SIM7000E / SIM800L), and integrates a cloud backend with Firebase for resilient remote data storage. The broader research explores AI-assisted myocardial infarction classification and mobile telemetry monitoring (concept explored in Flutter).
+              </p>
+
+              <!-- Architecture Flow Diagram -->
+              <div class="architecture-strip">
+                <span class="arch-step">AD8232 ECG Sensor</span>
+                <span class="arch-arrow">→</span>
+                <span class="arch-step">Arduino Microcontroller</span>
+                <span class="arch-arrow">→</span>
+                <span class="arch-step">SIM7000E / SIM800L</span>
+                <span class="arch-arrow">→</span>
+                <span class="arch-step">Node.js / Firebase</span>
+                <span class="arch-arrow">→</span>
+                <span class="arch-step">AI Classification Concept</span>
+              </div>
+
+              <div class="project-probe-action">
+                <span>⚡ Interactive Pipeline:</span>
+                <button type="button" class="btn btn-sm btn-lime circuit-probe-btn" data-project="ecg">
+                  🧪 Probe ECG Circuit (+25 XP)
+                </button>
+              </div>
+
+              <div class="project-prototype-notice">
+                <span>⚠️ Note: Developed as an academic prototype exploring hardware-to-cloud telemetry and cardiac signal acquisition. Not a certified clinical medical device.</span>
+              </div>
+
+              <div class="project-tech-block">
+                <span class="project-tech-heading">Hardware &amp; Software Stack</span>
+                <div class="tech-chips">
+                  <span class="tech-chip">Arduino</span>
+                  <span class="tech-chip">AD8232 Sensor</span>
+                  <span class="tech-chip">SIM7000E</span>
+                  <span class="tech-chip">SIM800L</span>
+                  <span class="tech-chip">Node.js</span>
+                  <span class="tech-chip">Express</span>
+                  <span class="tech-chip">Firebase</span>
+                  <span class="tech-chip">Python</span>
+                  <span class="tech-chip">Flutter Concept</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 02 -->
+            <article class="project-case">
+              <div class="project-topbar">
+                <div class="project-title-area">
+                  <span class="project-case-num">CASE 02 // EDGE COMPUTING &amp; DEEP LEARNING</span>
+                  <h3 class="project-case-title">Edge AI ECG Classification</h3>
+                </div>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <span class="sticker sticker-lavender">Edge Inference</span>
+                  <span class="sticker sticker-white">1D-CNN</span>
+                </div>
+              </div>
+
+              <p class="project-narrative">
+                An edge AI research and implementation project exploring binary myocardial infarction classification directly from digitized ECG signals using a lightweight 1D convolutional neural network (1D-CNN). The work involves training and validating on the benchmark PTB-XL clinical dataset, performing model evaluation and post-training quantization with TensorFlow Lite, testing interpretability via Grad-CAM saliency maps, and addressing deployment constraints on a Raspberry Pi.
+              </p>
+
+              <!-- Architecture Flow Diagram -->
+              <div class="architecture-strip">
+                <span class="arch-step">PTB-XL ECG Dataset</span>
+                <span class="arch-arrow">→</span>
+                <span class="arch-step">1D-CNN Model Architecture</span>
+                <span class="arch-arrow">→</span>
+                <span class="arch-step">Grad-CAM Saliency</span>
+                <span class="arch-arrow">→</span>
+                <span class="arch-step">TFLite Quantization</span>
+                <span class="arch-arrow">→</span>
+                <span class="arch-step">Raspberry Pi Edge Testing</span>
+              </div>
+
+              <div class="project-probe-action">
+                <span>🧠 Edge Runtime:</span>
+                <button type="button" class="btn btn-sm btn-lime circuit-probe-btn" data-project="ai">
+                  🧪 Test Model Quantization (+25 XP)
+                </button>
+              </div>
+
+              <div class="project-prototype-notice">
+                <span>⚠️ Note: Research and implementation project focusing on edge inference feasibility and model compression. Not intended for commercial or clinical diagnostics.</span>
+              </div>
+
+              <div class="project-tech-block">
+                <span class="project-tech-heading">Machine Learning &amp; Edge Stack</span>
+                <div class="tech-chips">
+                  <span class="tech-chip">Python</span>
+                  <span class="tech-chip">TensorFlow Lite</span>
+                  <span class="tech-chip">1D-CNN</span>
+                  <span class="tech-chip">PTB-XL Dataset</span>
+                  <span class="tech-chip">Raspberry Pi</span>
+                  <span class="tech-chip">Grad-CAM</span>
+                  <span class="tech-chip">Model Quantization</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 03 -->
+            <article class="project-case">
+              <div class="project-topbar">
+                <div class="project-title-area">
+                  <span class="project-case-num">CASE 03 // ASSISTIVE EMBEDDED TELEMETRY</span>
+                  <h3 class="project-case-title">Alzheimer’s Patient Monitoring System</h3>
+                </div>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <span class="sticker sticker-orange">Assistive Tech</span>
+                  <span class="sticker sticker-white">Embedded C++</span>
+                </div>
+              </div>
+
+              <p class="project-narrative">
+                An embedded monitoring project created to assist caregivers supporting individuals with Alzheimer's disease. The system integrates GPS location tracking, GSM connectivity for emergency caregiver notifications, and a companion memory-book concept designed to promote cognitive familiarity and peace of mind.
+              </p>
+
+              <!-- Architecture Flow Diagram -->
+              <div class="architecture-strip">
+                <span class="arch-step">Wearable ESP32 Unit</span>
+                <span class="arch-arrow">→</span>
+                <span class="arch-step">GPS Coordinates</span>
+                <span class="arch-arrow">→</span>
+                <span class="arch-step">GSM Alert Transmission</span>
+                <span class="arch-arrow">→</span>
+                <span class="arch-step">Caregiver Mobile Interface</span>
+                <span class="arch-arrow">→</span>
+                <span class="arch-step">Cognitive Memory-Book</span>
+              </div>
+
+              <div class="project-probe-action">
+                <span>📍 Telemetry Uplink:</span>
+                <button type="button" class="btn btn-sm btn-lime circuit-probe-btn" data-project="gps">
+                  🧪 Ping Geofence Tracker (+25 XP)
+                </button>
+              </div>
+
+              <div class="project-prototype-notice">
+                <span>⚠️ Note: Academic prototype created for testing sensor telemetry, location alerts, and caregiver notifications.</span>
+              </div>
+
+              <div class="project-tech-block">
+                <span class="project-tech-heading">Embedded &amp; Wireless Stack</span>
+                <div class="tech-chips">
+                  <span class="tech-chip">ESP32</span>
+                  <span class="tech-chip">GPS Module</span>
+                  <span class="tech-chip">GSM Connectivity</span>
+                  <span class="tech-chip">Embedded Systems</span>
+                  <span class="tech-chip">Mobile Application</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           4. GAMIFIED IOT TESTBENCH & HARDWARE PLAYGROUND (Interactive!)
+           ==================================================================== -->
+      <section class="section section-alt" id="iot-lab">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker-wrap">
+                <span class="section-index">03 //</span>
+                <span class="section-kicker">Interactive Hardware Sandbox</span>
+              </div>
+              <h2 class="section-title">Virtual IoT Testbench</h2>
+            </div>
+            <span class="sticker sticker-lime">Interactive Arcade</span>
+          </div>
+
+          <div class="iot-arcade-card">
+            <!-- Node Selector Tabs -->
+            <div class="iot-node-selector">
+              <span style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 800; color: var(--text-muted); margin-right: 6px;">SELECT NODE:</span>
+              <button type="button" class="iot-node-btn active" data-node="ecg" id="tab-node-ecg">
+                <span>⚡ AD8232 ECG Node</span>
+              </button>
+              <button type="button" class="iot-node-btn" data-node="ai" id="tab-node-ai">
+                <span>🧠 Edge AI 1D-CNN Node</span>
+              </button>
+              <button type="button" class="iot-node-btn" data-node="gps" id="tab-node-gps">
+                <span>📍 Alzheimer's GPS Tracker</span>
+              </button>
+            </div>
+
+            <!-- Main Testbench Grid -->
+            <div class="iot-bench-grid">
+              <!-- Left: Virtual MCU PCB Simulation -->
+              <div class="virtual-mcu-pcb">
+                <div class="pcb-header">
+                  <span class="pcb-chip-name" id="pcb-node-title">ESP32-WROOM // AD8232 TELEMETRY</span>
+                  <div class="pcb-leds-cluster">
+                    <div class="led-indicator">
+                      <span class="led-light pwr-on" id="led-pwr"></span>
+                      <span>PWR</span>
+                    </div>
+                    <div class="led-indicator">
+                      <span class="led-light" id="led-tx"></span>
+                      <span>TX</span>
+                    </div>
+                    <div class="led-indicator">
+                      <span class="led-light" id="led-rx"></span>
+                      <span>RX</span>
+                    </div>
+                    <div class="led-indicator">
+                      <span class="led-light" id="led-alert"></span>
+                      <span>ALERT</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Virtual OLED Display -->
+                <div class="virtual-oled-screen">
+                  <div class="oled-title-bar">
+                    <span id="oled-header-text">SYS: ACQUISITION READY</span>
+                    <span id="oled-baud-text">115200 BAUD</span>
+                  </div>
+
+                  <!-- Waveform Canvas -->
+                  <div class="oled-waveform-wrap">
+                    <canvas id="oled-canvas" width="340" height="48" style="width: 100%; height: 100%; display: block;"></canvas>
+                  </div>
+
+                  <div class="oled-status-line">
+                    <span id="oled-metric-1">HEART RATE: 74 BPM</span>
+                    <span id="oled-metric-2">UPLINK: SIM7000E</span>
+                  </div>
+                </div>
+
+                <!-- Hardware Action Buttons -->
+                <div class="iot-actions-deck">
+                  <button type="button" class="arcade-action-btn" id="btn-sample-signal">
+                    <span>⚡ Sample Signal (+30 XP)</span>
+                  </button>
+                  <button type="button" class="arcade-action-btn" id="btn-transmit-packet">
+                    <span>📡 Dispatch Packet (+40 XP)</span>
+                  </button>
+                  <button type="button" class="arcade-action-btn" id="btn-run-inference">
+                    <span>🧠 Run 1D-CNN Model (+50 XP)</span>
+                  </button>
+                  <button type="button" class="arcade-action-btn" id="btn-trigger-alert">
+                    <span>🚨 Simulate Alert (+20 XP)</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Right: Telemetry Console & Gamification Quests -->
+              <div class="iot-telemetry-console-col">
+                <!-- Gamification Quest Card -->
+                <div class="iot-quest-box">
+                  <div class="quest-header">
+                    <span>🎮 Engineer Challenge</span>
+                    <span class="quest-badge" id="quest-score-badge">0 / 3 Done</span>
+                  </div>
+
+                  <div class="quest-list">
+                    <div class="quest-item" id="quest-item-1">
+                      <span class="quest-check" id="check-1">○</span>
+                      <span>Acquire live sensor signal stream</span>
+                    </div>
+                    <div class="quest-item" id="quest-item-2">
+                      <span class="quest-check" id="check-2">○</span>
+                      <span>Dispatch telemetry packet to Firebase</span>
+                    </div>
+                    <div class="quest-item" id="quest-item-3">
+                      <span class="quest-check" id="check-3">○</span>
+                      <span>Execute edge 1D-CNN model inference</span>
+                    </div>
+                  </div>
+
+                  <!-- Achievement Unlocked Banner -->
+                  <div id="achievement-unlocked-banner" style="display: none; background: var(--accent-lime); color: var(--accent-lime-contrast); padding: 8px 12px; border-radius: var(--radius-sm); border: var(--border-width) solid var(--border-color); font-family: var(--font-heading); font-weight: 800; font-size: 0.85rem; text-align: center;">
+                    🏆 Achievement Unlocked: Certified IoT Engineer! (+100 XP)
+                  </div>
+                </div>
+
+                <!-- Live Serial Terminal Console -->
+                <div class="serial-monitor-wrap">
+                  <div class="serial-topbar">
+                    <span>SERIAL MONITOR // COM4 [115200]</span>
+                    <button type="button" id="btn-clear-serial" style="background: transparent; border: none; color: #94A3B8; font-family: var(--font-mono); font-size: 0.7rem; cursor: pointer;">[CLEAR]</button>
+                  </div>
+
+                  <div class="serial-terminal-logs" id="serial-terminal-logs">
+                    <div class="serial-log-entry">
+                      <span class="serial-timestamp">[00:00.12]</span>
+                      <span>ESP32-WROOM-32 booting... Flash: 4MB, PSRAM: disabled</span>
+                    </div>
+                    <div class="serial-log-entry">
+                      <span class="serial-timestamp">[00:00.35]</span>
+                      <span>Connected to peripheral bus. Type commands or click arcade buttons to earn XP!</span>
+                    </div>
+                  </div>
+
+                  <!-- Quick Action Chips -->
+                  <div class="command-quick-chips">
+                    <span style="font-family: var(--font-mono); font-size: 0.7rem; color: #64748B;">CMD:</span>
+                    <button type="button" class="chip-btn" data-cmd="sample">sample</button>
+                    <button type="button" class="chip-btn" data-cmd="send">send</button>
+                    <button type="button" class="chip-btn" data-cmd="infer">infer</button>
+                    <button type="button" class="chip-btn" data-cmd="sos">sos</button>
+                    <button type="button" class="chip-btn" data-cmd="help">help</button>
+                  </div>
+
+                  <!-- Interactive Serial Input Line -->
+                  <div class="serial-input-row">
+                    <span style="color: #4ADE80; font-family: var(--font-mono); font-size: 0.8rem;">&gt;</span>
+                    <input type="text" id="serial-user-input" class="serial-input" placeholder="Type command (e.g. sample, send, infer, help)..." autocomplete="off" />
+                    <button type="button" id="serial-send-btn" class="serial-send-btn">Send</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           5. SKILLS SECTION (Tech Lab Shelves & Terminal Chips)
+           ==================================================================== -->
+      <section class="section" id="skills">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker-wrap">
+                <span class="section-index">04 //</span>
+                <span class="section-kicker">Tooling &amp; Foundations</span>
+              </div>
+              <h2 class="section-title">Technical Skills</h2>
+            </div>
+            <span class="sticker sticker-lime">Lab Tested</span>
+          </div>
+
+          <div class="skills-deck">
+            <!-- Rack 1: Programming and Software Development -->
+            <div class="skills-rack">
+              <div class="skills-rack-header">
+                <span class="skills-rack-badge">&lt;/&gt;</span>
+                <h3 class="skills-rack-title">Programming &amp; Software Development</h3>
+              </div>
+              <div class="skills-rack-items">
+                <span class="skill-tag-item">Python</span>
+                <span class="skill-tag-item">Java</span>
+                <span class="skill-tag-item">HTML</span>
+                <span class="skill-tag-item">CSS</span>
+                <span class="skill-tag-item">JavaScript</span>
+                <span class="skill-tag-item">TypeScript</span>
+              </div>
+            </div>
+
+            <!-- Rack 2: Embedded Systems and IoT -->
+            <div class="skills-rack">
+              <div class="skills-rack-header">
+                <span class="skills-rack-badge">⚡</span>
+                <h3 class="skills-rack-title">Embedded Systems &amp; IoT</h3>
+              </div>
+              <div class="skills-rack-items">
+                <span class="skill-tag-item">Arduino</span>
+                <span class="skill-tag-item">ESP32</span>
+                <span class="skill-tag-item">Sensor integration</span>
+                <span class="skill-tag-item">Serial communication</span>
+                <span class="skill-tag-item">GSM/GPRS connectivity</span>
+                <span class="skill-tag-item">Hardware-software integration</span>
+              </div>
+            </div>
+
+            <!-- Rack 3: AI and Machine Learning -->
+            <div class="skills-rack">
+              <div class="skills-rack-header">
+                <span class="skills-rack-badge">🧠</span>
+                <h3 class="skills-rack-title">AI &amp; Machine Learning</h3>
+              </div>
+              <div class="skills-rack-items">
+                <span class="skill-tag-item">Machine learning fundamentals</span>
+                <span class="skill-tag-item">TensorFlow / TensorFlow Lite</span>
+                <span class="skill-tag-item">1D convolutional neural networks</span>
+                <span class="skill-tag-item">ECG signal classification</span>
+                <span class="skill-tag-item">Model evaluation and quantization</span>
+              </div>
+            </div>
+
+            <!-- Rack 4: Backend and Data -->
+            <div class="skills-rack">
+              <div class="skills-rack-header">
+                <span class="skills-rack-badge">💾</span>
+                <h3 class="skills-rack-title">Backend &amp; Data</h3>
+              </div>
+              <div class="skills-rack-items">
+                <span class="skill-tag-item">Node.js</span>
+                <span class="skill-tag-item">Express.js</span>
+                <span class="skill-tag-item">Firebase Realtime Database</span>
+                <span class="skill-tag-item">REST APIs</span>
+                <span class="skill-tag-item">Git and GitHub</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           6. CONTACT SECTION (Let's Connect & Channels)
+           ==================================================================== -->
+      <section class="section section-alt" id="contact">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker-wrap">
+                <span class="section-index">05 //</span>
+                <span class="section-kicker">Open For Dialogue</span>
+              </div>
+              <h2 class="section-title">Let's Connect</h2>
+            </div>
+            <span class="sticker sticker-lime">Say Hello</span>
+          </div>
+
+          <div class="contact-funky-card">
+            <div>
+              <h3 class="contact-headline">Interested in collaborating or talking tech?</h3>
+              <p style="font-size: 1.08rem; color: var(--text-secondary); margin-top: 8px;">
+                Interested in software engineering, embedded systems, IoT, or AI? Feel free to get in touch through LinkedIn, Email, or GitHub.
+              </p>
+            </div>
+
+            <div class="contact-channels-grid">
+              <!-- LinkedIn Box (Requested by user) -->
+              <div class="contact-channel-box">
+                <div class="contact-channel-top">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                  <span>LinkedIn Profile</span>
+                </div>
+                <div class="contact-channel-val">linkedin.com/in/eyamsolli</div>
+                <div class="contact-channel-actions">
+                  <a href="https://www.linkedin.com/in/eyamsolli/" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin btn-sm">
+                    Open Profile ↗
+                  </a>
+                  <button type="button" class="btn btn-secondary btn-sm" id="copy-linkedin-btn" aria-label="Copy LinkedIn URL">
+                    Copy
+                  </button>
+                </div>
+              </div>
+
+              <!-- Email Box -->
+              <div class="contact-channel-box">
+                <div class="contact-channel-top">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  <span>Professional Email</span>
+                </div>
+                <div class="contact-channel-val" id="email-address-text">msolli.aya18@gmail.com</div>
+                <div class="contact-channel-actions">
+                  <a href="mailto:msolli.aya18@gmail.com" class="btn btn-primary btn-sm">
+                    Send Email ↗
+                  </a>
+                  <button type="button" class="btn btn-secondary btn-sm" id="copy-email-btn" aria-label="Copy email address to clipboard">
+                    Copy
+                  </button>
+                </div>
+              </div>
+
+              <!-- GitHub Box -->
+              <div class="contact-channel-box">
+                <div class="contact-channel-top">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                  </svg>
+                  <span>GitHub Repository</span>
+                </div>
+                <div class="contact-channel-val">https://github.com/eyamsolli</div>
+                <div class="contact-channel-actions">
+                  <a href="https://github.com/eyamsolli" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                    View Code ↗
+                  </a>
+                  <button type="button" class="btn btn-secondary btn-sm" id="copy-github-btn" aria-label="Copy GitHub profile link to clipboard">
+                    Copy
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          &copy; <span id="current-year">2026</span> <strong>Eya Msolli</strong> · Built as an interactive IoT sensor console with plain HTML, CSS &amp; TypeScript.
+        </div>
+        <div class="footer-nav">
+          <a href="#hero">Back to top ↑</a>
+          <span>·</span>
+          <a href="https://www.linkedin.com/in/eyamsolli/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <span>·</span>
+          <a href="mailto:msolli.aya18@gmail.com">Email</a>
+          <span>·</span>
+          <a href="https://github.com/eyamsolli" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating XP Notification Banner -->
+    <div class="xp-popup" id="xp-popup" role="status" aria-live="polite">
+      +25 XP ⚡
+    </div>
+
+    <!-- "Customize my vibe" Theme Picker Modal -->
+    <div class="vibe-modal-backdrop" id="vibe-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="vibe-modal-title">
+      <div class="vibe-modal">
+        <div class="vibe-modal-head">
+          <h3 class="vibe-modal-title" id="vibe-modal-title">Customize My Vibe</h3>
+          <button type="button" class="vibe-modal-close" id="close-vibe-modal-btn" aria-label="Close vibe menu">✕</button>
+        </div>
+
+        <p style="font-size: 0.88rem; color: var(--text-secondary);">
+          Pick a visual identity preset to reshape the portfolio palette:
+        </p>
+
+        <div class="theme-options-list">
+          <!-- 1. Creative Lab -->
+          <button type="button" class="theme-option-btn selected" data-theme="creative-lab">
+            <div class="theme-info">
+              <span class="theme-name">1. Creative Lab</span>
+              <span class="theme-desc">Cream, deep teal &amp; electric lime</span>
+            </div>
+            <div class="theme-swatches">
+              <span class="theme-swatch" style="background: #FBF9F3;"></span>
+              <span class="theme-swatch" style="background: #0D5C56;"></span>
+              <span class="theme-swatch" style="background: #D2FF19;"></span>
+            </div>
+          </button>
+
+          <!-- 2. Retro Pop -->
+          <button type="button" class="theme-option-btn" data-theme="retro-pop">
+            <div class="theme-info">
+              <span class="theme-name">2. Retro Pop</span>
+              <span class="theme-desc">Warm beige, vivid orange &amp; espresso</span>
+            </div>
+            <div class="theme-swatches">
+              <span class="theme-swatch" style="background: #F7EFE6;"></span>
+              <span class="theme-swatch" style="background: #FF5722;"></span>
+              <span class="theme-swatch" style="background: #2A1810;"></span>
+            </div>
+          </button>
+
+          <!-- 3. Digital Night -->
+          <button type="button" class="theme-option-btn" data-theme="digital-night">
+            <div class="theme-info">
+              <span class="theme-name">3. Digital Night</span>
+              <span class="theme-desc">Dark charcoal, lavender &amp; neon mint</span>
+            </div>
+            <div class="theme-swatches">
+              <span class="theme-swatch" style="background: #10161A;"></span>
+              <span class="theme-swatch" style="background: #C084FC;"></span>
+              <span class="theme-swatch" style="background: #2DD4BF;"></span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification Element -->
+    <div class="toast-msg" id="toast-msg" role="status" aria-live="polite">
+      Copied to clipboard!
+    </div>
+
+    <!-- Application Script -->
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "Eya Msolli Portfolio",
+  "description": "Personal portfolio website for Eya Msolli, software engineering student specializing in Embedded Systems, IoT, and AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
