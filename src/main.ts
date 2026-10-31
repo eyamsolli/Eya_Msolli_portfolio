@@ -607,7 +607,7 @@ function setupClipboardActions(): void {
   const copyLinkedinBtn = document.getElementById('copy-linkedin-btn');
   const emailValue = document.getElementById('email-address-text')?.textContent?.trim() || 'msolli.aya18@gmail.com';
   const githubValue = 'https://github.com/eyamsolli';
-  const linkedinValue = 'https://www.linkedin.com/in/eyamsolli/';
+  const linkedinValue = 'https://www.linkedin.com/in/eya-msolli-222973205/';
 
   if (copyEmailBtn) {
     copyEmailBtn.addEventListener('click', async () => {
